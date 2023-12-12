@@ -1,0 +1,17 @@
+﻿<Window x:Class="YzonShop.Forms.Administrator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YzonShop.Forms"
+        mc:Ignorable="d"
+        Title="Administrator" Height="450" Width="800">
+    <Grid Background="#FFEFE6DD">
+        <DataGrid  Margin="29,110,232,61"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="29,47,0,0" VerticalAlignment="Top" Width="47"/>
+        <Label Content="Дата входа" HorizontalAlignment="Left" Margin="251,47,0,0" VerticalAlignment="Top" Width="72"/>
+        <TextBox HorizontalAlignment="Left" Margin="76,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <DatePicker HorizontalAlignment="Left" Margin="328,49,0,0" VerticalAlignment="Top" Width="131"/>
+
+    </Grid>
+</Window>
