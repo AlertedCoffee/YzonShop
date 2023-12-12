@@ -58,6 +58,7 @@
     <Compile Include="Forms\Administrator.xaml.cs">
       <DependentUpon>Administrator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\AuthLog.cs" />
     <Compile Include="SQLHelper.cs" />
     <Page Include="Forms\Administrator.xaml">
       <SubType>Designer</SubType>

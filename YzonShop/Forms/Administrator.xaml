@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YzonShop.Forms"
         mc:Ignorable="d"
-        Title="Administrator" Height="450" Width="800">
-    <Grid Background="#FFEFE6DD">
-        <DataGrid  Margin="29,110,232,61"/>
-        <Label Content="Логин" HorizontalAlignment="Left" Margin="29,47,0,0" VerticalAlignment="Top" Width="47"/>
-        <Label Content="Дата входа" HorizontalAlignment="Left" Margin="251,47,0,0" VerticalAlignment="Top" Width="72"/>
-        <TextBox HorizontalAlignment="Left" Margin="76,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <DatePicker HorizontalAlignment="Left" Margin="328,49,0,0" VerticalAlignment="Top" Width="131"/>
+        Title="Administrator" Height="265" Width="600"
+        Loaded="Window_Loaded" MinWidth="600" MinHeight="450">
+    <Grid Background="#FFEFE6DD" Margin="0,0,0,-6">
+        <DataGrid Name="DataGrid" Margin="30,54,20,10" Background="#FFEFE6DD" BorderBrush="#FF7EBDC2" BorderThickness="2,2,2,2" IsReadOnly="True"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="30,23,0,0" VerticalAlignment="Top" Width="47" FontFamily="Verdana"/>
+        <Label Content="Дата входа" HorizontalAlignment="Left" Margin="230,23,0,0" VerticalAlignment="Top" Width="72" FontFamily="Verdana"/>
+        <TextBox Name="LoginTextBox" HorizontalAlignment="Left" Margin="77,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FF7EBDC2" BorderBrush="Black" FontFamily="Verdana"/>
+        <DatePicker Name="DatePikachu" Margin="305,24,0,0" VerticalAlignment="Top" Background="#FF7EBDC2" BorderBrush="Black" FontFamily="Verdana" HorizontalAlignment="Left" Width="131" Height="24"/>
+        <Button Content="Поиск" Margin="470,24,0,0" VerticalAlignment="Top" Background="#FFF3DFA2" BorderBrush="Black" FontWeight="Bold" Height="24" Foreground="#FFBB4430" FontFamily="Verdana" HorizontalAlignment="Left" Width="110" Click="Button_Click"/>
 
     </Grid>
 </Window>

@@ -55,7 +55,7 @@ namespace YzonShop
 
                 int access = 1;
 
-                Thread thread = null;
+                Window window = null;
                 switch (appointment[0])
                 {
                     case "Пользователь":
@@ -68,7 +68,7 @@ namespace YzonShop
                         //thread = new Thread(Run => Application.Run(new Collector(sqlHelper)));
                         break;
                     case "Администратор":
-                        thread = new Thread(() => System.Windows.Forms.Application.Run(splashForm));
+                        window = new Administrator();
                         break;
                     default:
                         access = 0;
@@ -96,19 +96,13 @@ namespace YzonShop
                         return;
                 }
                 sqlHelper.SaveAuthLog(LoginTextBox.Text, access);
+                window.Show();
                 this.Close();
-                thread.SetApartmentState(ApartmentState.STA);
-                thread.Start();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, this.Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        private void WindowInit()
-        {
-
         }
 
         private int a;

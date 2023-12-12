@@ -23,5 +23,19 @@ namespace YzonShop.Forms
         {
             InitializeComponent();
         }
+
+        private SQLHelper _sqlHelper;
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _sqlHelper = SQLHelper.GetSQLHelper();
+
+            DataGrid.ItemsSource = _sqlHelper.GetAuthList();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DataGrid.ItemsSource = _sqlHelper.GetSortedAuthList(LoginTextBox.Text, DatePikachu.SelectedDate == null ? DateTime.MinValue : (DateTime)DatePikachu.SelectedDate);
+        }
     }
 }

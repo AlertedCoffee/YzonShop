@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YzonShop.Model;
 
 namespace YzonShop
 {
@@ -55,6 +57,55 @@ namespace YzonShop
         } 
 
 
+        public List<AuthLog> GetAuthList()
+        {
+            string query = $"select * from AuthLog";
+
+            return AuthListReturner(query);
+        }
+
+        public List<AuthLog> GetSortedAuthList(string login, DateTime date)
+        {
+            string query;
+            if (string.IsNullOrEmpty(login) && date == DateTime.MinValue)
+            {
+                return GetAuthList();
+            }
+            else if (string.IsNullOrEmpty(login))
+            {
+                query = $"select * from AuthLog where date >= '{date.ToString()}' and date < '{date.AddHours(24).ToString()}'";
+            }
+            else if (date == DateTime.MinValue)
+            {
+                query = $"select * from AuthLog where login = '{login.ToString()}'";
+            }
+            else
+            {
+                query = $"select * from AuthLog where date >= '{date.ToString()}' and date < '{date.AddHours(24).ToString()}' and login = '{login.ToString()}'";
+            }
+
+            return AuthListReturner(query);
+        }
+
+        private List<AuthLog> AuthListReturner(string query)
+        {
+            var list = new List<AuthLog>();
+
+            SqlDataReader reader = UseQuery(query).ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new AuthLog(Int32.Parse(reader[0].ToString()),
+                    reader[1].ToString(),
+                    DateTime.Parse(reader[2].ToString()),
+                    Boolean.Parse(reader[3].ToString()))
+                    );
+            }
+            reader.Close();
+
+            return list;
+        }
+
+
         private List<string[]> ListReturner(string query)
         {
             var list = new List<string[]>();
@@ -74,5 +125,7 @@ namespace YzonShop
 
             return list;
         }
+
+
     }
 }
