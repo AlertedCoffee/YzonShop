@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="Model\AuthLog.cs" />
     <Compile Include="Model\Goods.cs" />
+    <Compile Include="Model\Order.cs" />
     <Compile Include="Model\Shop.cs" />
     <Compile Include="SQLHelper.cs" />
     <Page Include="Forms\AdministratorWindow.xaml">

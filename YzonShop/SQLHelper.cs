@@ -204,6 +204,50 @@ namespace YzonShop
         }
 
         #endregion Shops
+        #region Orders
+        public List<Order> GetOrders()
+        {
+            string query = $"select * from Orders";
+
+            return OrdersListReturner(query);
+
+        }
+
+        public void SetOrder(Order order)
+        {
+            //string query = $"insert into Shops values ('{order.EmailAddress}', '{order.DeliverPay}')";
+            //UseQuery(query).ExecuteNonQuery();
+        }
+
+        public void UpdateOrder(Order order)
+        {
+            //string query = $"update Shops set email_address = '{order.EmailAddress}', deliver_pay = '{order.DeliverPay}' where id = {order.Id}";
+            //UseQuery(query).ExecuteNonQuery();
+        }
+
+        public void DeleteOrder(int id)
+        {
+            string query = $"Delete Order where id = {id}";
+            UseQuery(query).ExecuteNonQuery();
+        }
+
+        private List<Order> OrdersListReturner(string query)
+        {
+            var list = new List<Order>();
+
+            SqlDataReader reader = UseQuery(query).ExecuteReader();
+            while (reader.Read())
+            {
+                //list.Add(new Shop(Int32.Parse(reader[0].ToString()),
+                //    reader[1].ToString(),
+                //    Boolean.Parse(reader[2].ToString())
+                //    ));
+            }
+            reader.Close();
+
+            return list;
+        }
+        #endregion Orders
 
         private List<string[]> ListReturner(string query)
         {

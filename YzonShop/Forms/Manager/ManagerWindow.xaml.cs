@@ -138,5 +138,10 @@ namespace YzonShop.Forms
                 MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void RefreshOrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
