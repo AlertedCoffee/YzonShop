@@ -17,9 +17,9 @@ namespace YzonShop.Forms
     /// <summary>
     /// Логика взаимодействия для Administrator.xaml
     /// </summary>
-    public partial class Administrator : Window
+    public partial class AdministratorWindow : Window
     {
-        public Administrator()
+        public AdministratorWindow()
         {
             InitializeComponent();
         }

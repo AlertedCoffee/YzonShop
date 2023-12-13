@@ -35,6 +35,11 @@ namespace YzonShop
         {
             try
             {
+                Window test = new ManagerWindow();
+                test.Show();
+                this.Close();
+                return;
+
                 SQLHelper sqlHelper = SQLHelper.GetSQLHelper();
 
                 var appointment = sqlHelper.Login(LoginTextBox.Text, PasswordBox.Password);
@@ -62,13 +67,13 @@ namespace YzonShop
                         //thread = new Thread(Run => Application.Run(new Director(sqlHelper)));
                         break;
                     case "Менеджер":
-                        //thread = new Thread(Run => Application.Run(new Manager(sqlHelper)));
+                        window = new ManagerWindow();
                         break;
                     case "Доставщик":
                         //thread = new Thread(Run => Application.Run(new Collector(sqlHelper)));
                         break;
                     case "Администратор":
-                        window = new Administrator();
+                        window = new AdministratorWindow();
                         break;
                     default:
                         access = 0;

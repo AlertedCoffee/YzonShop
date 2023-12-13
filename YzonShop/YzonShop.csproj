@@ -55,12 +55,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Forms\Administrator.xaml.cs">
-      <DependentUpon>Administrator.xaml</DependentUpon>
+    <Compile Include="Config.cs" />
+    <Compile Include="Forms\AdministratorWindow.xaml.cs">
+      <DependentUpon>AdministratorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Manager\AddGoodsWindow.xaml.cs">
+      <DependentUpon>AddGoodsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Manager\EditGoodsWindow.xaml.cs">
+      <DependentUpon>EditGoodsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Manager\ManagerWindow.xaml.cs">
+      <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\AuthLog.cs" />
+    <Compile Include="Model\Goods.cs" />
     <Compile Include="SQLHelper.cs" />
-    <Page Include="Forms\Administrator.xaml">
+    <Page Include="Forms\AdministratorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Manager\AddGoodsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Manager\EditGoodsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Manager\ManagerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

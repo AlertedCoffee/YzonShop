@@ -105,6 +105,42 @@ namespace YzonShop
             return list;
         }
 
+        public List<Goods> GetGoods()
+        {
+            string query = $"select * from Goods";
+
+            return GoodsListReturner(query);
+
+        }
+
+        public void SetGoods(Goods goods)
+        {
+            string query = $"insert into Goods values ('{goods.Name}', '{goods.Firm}', '{goods.Model}', '{goods.Description}', {goods.Cost.ToString().Replace(',', '.')}, {goods.Warranty}, '{goods.Image}')";
+            UseQuery(query).ExecuteNonQuery();
+        }
+
+        private List<Goods> GoodsListReturner(string query)
+        {
+            var list = new List<Goods>();
+
+            SqlDataReader reader = UseQuery(query).ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new Goods(Int32.Parse(reader[0].ToString()),
+                    reader[1].ToString(),
+                    reader[2].ToString(),
+                    reader[3].ToString(),
+                    reader[4].ToString(),
+                    float.Parse(reader[5].ToString()),
+                    Int32.Parse(reader[6].ToString()),
+                    reader[7].ToString())
+                    );
+            }
+            reader.Close();
+
+            return list;
+        }
+
 
         private List<string[]> ListReturner(string query)
         {

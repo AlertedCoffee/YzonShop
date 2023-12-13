@@ -1,0 +1,54 @@
+﻿<Window x:Class="YzonShop.Forms.ManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YzonShop.Forms"
+        mc:Ignorable="d"
+        Title="Manager" Height="450" Width="800" Background="#FF7EBDC2">
+    <Grid>
+        <Button Content="Выход" Name="LogoutButton" BorderBrush="Black" Background="#FFF3DFA2" Foreground="#FFBB4430" FontWeight="Bold" Visibility="Visible" Click="LogoutButton_Click" HorizontalAlignment="Right" Width="100" Height="21" VerticalAlignment="Top" Margin="0,2,2,0"/>
+        <TabControl Background="#FF7EBDC2" FontFamily="Verdana" SelectionChanged="TabControl_SelectionChanged" Margin="0,28,0,0">
+            <TabItem Name="GoodsTabItem" Header="Товары" BorderBrush="#FFF3DFA2" FontFamily="Verdana">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFEFE6DD" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFEFE6DD">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="643*"/>
+                        <ColumnDefinition Width="151"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Name="GoodsDataGrid" Margin="10,54,22,10" Background="#FFEFE6DD" BorderBrush="#FF7EBDC2" BorderThickness="2,2,2,2" IsReadOnly="True"/>
+                    <Button Name="RefreshhButton" Content="Обновить" HorizontalAlignment="Left" Margin="9,115,0,0" VerticalAlignment="Top" Width="106" Background="#FFF3DFA2" FontFamily="Verdana" Click="RefreshButton_Click" Grid.Column="1" BorderBrush="Black"/>
+                    <Button Name="EditButton" Content="Редактировать" HorizontalAlignment="Left" Margin="9,148,0,0" VerticalAlignment="Top" Width="106" Background="#FFF3DFA2" FontFamily="Verdana" Grid.Column="1" BorderBrush="Black" Click="EditButton_Click"/>
+                    <Button Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="9,185,0,0" VerticalAlignment="Top" Width="106" Background="#FFF3DFA2" FontFamily="Verdana" Click="AddButton_Click" Grid.Column="1" BorderBrush="Black"/>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Магазины" BorderBrush="#FFF3DFA2" FontFamily="Verdana">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFEFE6DD" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFEFE6DD"/>
+            </TabItem>
+            <TabItem Header="Заказы" BorderBrush="#FFF3DFA2" FontFamily="Verdana">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFEFE6DD" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FFEFE6DD"/>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Window>
