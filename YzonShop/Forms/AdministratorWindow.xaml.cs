@@ -28,14 +28,30 @@ namespace YzonShop.Forms
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _sqlHelper = SQLHelper.GetSQLHelper();
 
-            DataGrid.ItemsSource = _sqlHelper.GetAuthList();
+            try
+            {
+                _sqlHelper = SQLHelper.GetSQLHelper();
+
+                DataGrid.ItemsSource = _sqlHelper.GetAuthList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DataGrid.ItemsSource = _sqlHelper.GetSortedAuthList(LoginTextBox.Text, DatePikachu.SelectedDate == null ? DateTime.MinValue : (DateTime)DatePikachu.SelectedDate);
+
+            try
+            {
+                DataGrid.ItemsSource = _sqlHelper.GetSortedAuthList(LoginTextBox.Text, DatePikachu.SelectedDate == null ? DateTime.MinValue : (DateTime)DatePikachu.SelectedDate);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

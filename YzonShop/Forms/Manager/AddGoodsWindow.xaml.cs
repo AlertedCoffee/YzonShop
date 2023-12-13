@@ -32,7 +32,7 @@ namespace YzonShop.Forms.Manager
 
         string imagePath;
 
-        private SQLHelper _sqlHelper = SQLHelper.GetSQLHelper();
+        private SQLHelper _sqlHelper;
 
         private void ImageButton_Click(object sender, RoutedEventArgs e)
         {
@@ -92,6 +92,18 @@ namespace YzonShop.Forms.Manager
                 MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _sqlHelper = SQLHelper.GetSQLHelper();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

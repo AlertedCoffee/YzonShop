@@ -62,14 +62,21 @@
     <Compile Include="Forms\Manager\AddGoodsWindow.xaml.cs">
       <DependentUpon>AddGoodsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Manager\AddShopWindow.xaml.cs">
+      <DependentUpon>AddShopWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Manager\EditGoodsWindow.xaml.cs">
       <DependentUpon>EditGoodsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Manager\EditShopWindow.xaml.cs">
+      <DependentUpon>EditShopWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\Manager\ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\AuthLog.cs" />
     <Compile Include="Model\Goods.cs" />
+    <Compile Include="Model\Shop.cs" />
     <Compile Include="SQLHelper.cs" />
     <Page Include="Forms\AdministratorWindow.xaml">
       <SubType>Designer</SubType>
@@ -79,7 +86,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Forms\Manager\AddShopWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\Manager\EditGoodsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Manager\EditShopWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

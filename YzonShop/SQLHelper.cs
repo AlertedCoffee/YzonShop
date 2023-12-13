@@ -32,6 +32,8 @@ namespace YzonShop
             return new SqlCommand(Query, Connection);
         }
 
+        #region Login
+
         public string[] Login(string login, string password)
         {
             if (login == null || login == "" || password == null || password == "") { throw new Exception("Поля логина и пароля должны быть заполнены"); }
@@ -105,6 +107,9 @@ namespace YzonShop
             return list;
         }
 
+        #endregion Login
+
+        #region Goods
         public List<Goods> GetGoods()
         {
             string query = $"select * from Goods";
@@ -116,6 +121,18 @@ namespace YzonShop
         public void SetGoods(Goods goods)
         {
             string query = $"insert into Goods values ('{goods.Name}', '{goods.Firm}', '{goods.Model}', '{goods.Description}', {goods.Cost.ToString().Replace(',', '.')}, {goods.Warranty}, '{goods.Image}')";
+            UseQuery(query).ExecuteNonQuery();
+        }
+
+        public void UpdateGoods(Goods goods)
+        {
+            string query = $"update Goods set name = '{goods.Name}', firm = '{goods.Firm}', model = '{goods.Model}', description = '{goods.Description}', cost = {goods.Cost.ToString().Replace(',', '.')}, warranty = {goods.Warranty}, image = '{goods.Image}' where id = {goods.Id}";
+            UseQuery(query).ExecuteNonQuery();
+        }
+
+        public void DeleteGoods(int id)
+        {
+            string query = $"Delete Goods where id = {id}";
             UseQuery(query).ExecuteNonQuery();
         }
 
@@ -140,7 +157,53 @@ namespace YzonShop
 
             return list;
         }
+        #endregion Goods
 
+        #region Shops
+        public List<Shop> GetShops()
+        {
+            string query = $"select * from Shops";
+
+            return ShopsListReturner(query);
+
+        }
+
+        public void SetShop(Shop shop)
+        {
+            string query = $"insert into Shops values ('{shop.EmailAddress}', '{shop.DeliverPay}')";
+            UseQuery(query).ExecuteNonQuery();
+        }
+
+        public void UpdateShop(Shop shop)
+        {
+            string query = $"update Shops set email_address = '{shop.EmailAddress}', deliver_pay = '{shop.DeliverPay}' where id = {shop.Id}";
+            UseQuery(query).ExecuteNonQuery();
+        }
+
+        public void DeleteShop(int id)
+        {
+            string query = $"Delete Shops where id = {id}";
+            UseQuery(query).ExecuteNonQuery();
+        }
+
+        private List<Shop> ShopsListReturner(string query)
+        {
+            var list = new List<Shop>();
+
+            SqlDataReader reader = UseQuery(query).ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new Shop(Int32.Parse(reader[0].ToString()),
+                    reader[1].ToString(),
+                    Boolean.Parse(reader[2].ToString())
+                    ));
+            }
+            reader.Close();
+
+            return list;
+        }
+
+        #endregion Shops
 
         private List<string[]> ListReturner(string query)
         {

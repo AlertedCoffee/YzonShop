@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YzonShop.Forms.Manager"
         mc:Ignorable="d"
-        Title="EditGoodsWindow" Height="450" Width="800">
+        Title="EditGoodsWindow" Height="440" Width="663" Background="#FFEFE6DD" Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="353*"/>
+            <RowDefinition Height="71*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="188*"/>
+            <ColumnDefinition Width="158*"/>
+            <ColumnDefinition Width="157*"/>
+            <ColumnDefinition Width="160*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="NameTextBox" Margin="24,70,18,0" TextWrapping="Wrap" Text="" Background="#FF7EBDC2" BorderBrush="Black" FontFamily="Verdana" Grid.Column="1" Height="22" VerticalAlignment="Top"/>
+        <TextBox Name="FirmTextBox" Margin="22,70,19,0" TextWrapping="Wrap" Text="" Background="#FF7EBDC2" BorderBrush="Black" FontFamily="Verdana" Grid.Column="2" Height="22" VerticalAlignment="Top"/>
+        <TextBox Name="ModelTextBox" Margin="19,70,25,0" TextWrapping="Wrap" Text="" Background="#FF7EBDC2" BorderBrush="Black" FontFamily="Verdana" Grid.Column="3" Height="22" VerticalAlignment="Top"/>
+        <TextBox Name="DescriptionTextBox" VerticalScrollBarVisibility="Visible"  Margin="24,158,25,23" TextWrapping="Wrap" Text="" Background="#FF7EBDC2" BorderBrush="Black" FontFamily="Verdana" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <TextBox Name="CostTextBox" Margin="50,158,23,0" TextWrapping="Wrap" Text="" Background="#FF7EBDC2" BorderBrush="Black" FontFamily="Verdana" Height="22" VerticalAlignment="Top"/>
+        <TextBox Name="WarrantyTextBox" Margin="50,244,23,0" TextWrapping="Wrap" Text="" Background="#FF7EBDC2" BorderBrush="Black" FontFamily="Verdana" Height="22" VerticalAlignment="Top"/>
+        <Button Name="ImageButton" Content="Изображение" Margin="50,307,23,0" Background="#FFF3DFA2" FontFamily="Verdana" Height="23" VerticalAlignment="Top" Click="ImageButton_Click" />
+        <Button Name="EditButton" Content="Сохранить" Margin="0,0,25,28" Background="#FFF3DFA2" FontFamily="Verdana" Foreground="#FFBB4430" FontWeight="Bold"  Grid.Row="1" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="154" Grid.Column="2" Grid.ColumnSpan="2" Click="EditButton_Click"/>
+        <Label Content="Name" Margin="24,44,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="116" Grid.Column="1"/>
+        <Label Content="Firm" Margin="22,44,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="116" Grid.Column="2"/>
+        <Label Content="Model" Margin="19,44,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="116" Grid.Column="3"/>
+        <Label Content="Cost" Margin="50,133,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="115"/>
+        <Label Content="Description" Margin="24,133,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="154" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Content="Warranty" Margin="50,218,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="115"/>
+        <ComboBox Name="IDCombobox" Margin="50,70,23,0" VerticalAlignment="Top" BorderBrush="Black" Background="#FF7EBDC2" SelectionChanged="IDCombobox_SelectionChanged"/>
+        <Label Content="ID" Margin="50,44,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="116"/>
+        <Button Name="DeleteButton" Content="Удалить" Margin="0,0,50,28" Background="#FFF3DFA2" FontFamily="Verdana" Grid.Row="1" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="154" Grid.Column="1" Grid.ColumnSpan="2" Click="DeleteButton_Click"/>
+
     </Grid>
 </Window>

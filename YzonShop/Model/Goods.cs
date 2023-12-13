@@ -38,5 +38,7 @@ namespace YzonShop.Model
             Description = "";
             Image = "";
         }
+
+        public override string ToString() => $"{Id}";
     }
 }

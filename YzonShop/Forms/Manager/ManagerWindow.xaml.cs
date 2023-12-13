@@ -29,27 +29,52 @@ namespace YzonShop.Forms
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (((TabControl)sender).SelectedIndex)
+            try
             {
-                case 0:
-                    GoodsDataGrid.ItemsSource = _sqlHelper.GetGoods();
-                    break;
-                default:
-                    break;
+                switch (((TabControl)sender).SelectedIndex)
+                {
+                    case 0:
+                        GoodsDataGrid.ItemsSource = _sqlHelper.GetGoods();
+                        break;
+                    case 1:
+                        ShopsDataGrid.ItemsSource = _sqlHelper.GetShops();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
-            GoodsDataGrid.ItemsSource = _sqlHelper.GetGoods();
+            try
+            {
+                GoodsDataGrid.ItemsSource = _sqlHelper.GetGoods();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new AddGoodsWindow();
-            window.ShowDialog();
-            
-            GoodsDataGrid.ItemsSource = _sqlHelper.GetGoods();
+
+            try
+            {
+                Window window = new AddGoodsWindow();
+                window.ShowDialog();
+
+                GoodsDataGrid.ItemsSource = _sqlHelper.GetGoods();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
@@ -61,10 +86,57 @@ namespace YzonShop.Forms
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new EditGoodsWindow();
-            window.ShowDialog();
+            try
+            {
+                Window window = new EditGoodsWindow();
+                window.ShowDialog();
 
-            GoodsDataGrid.ItemsSource = _sqlHelper.GetGoods();
+                GoodsDataGrid.ItemsSource = _sqlHelper.GetGoods();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void RefreshShopButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ShopsDataGrid.ItemsSource = _sqlHelper.GetShops();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void AddShopButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Window window = new AddShopWindow();
+                window.ShowDialog();
+                ShopsDataGrid.ItemsSource = _sqlHelper.GetShops();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void EditShopButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Window window = new EditShopWindow();
+                window.ShowDialog();
+                ShopsDataGrid.ItemsSource = _sqlHelper.GetShops();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

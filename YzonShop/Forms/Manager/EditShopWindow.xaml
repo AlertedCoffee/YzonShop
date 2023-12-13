@@ -1,0 +1,24 @@
+﻿<Window x:Class="YzonShop.Forms.Manager.EditShopWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YzonShop.Forms.Manager"
+        mc:Ignorable="d"
+        Title="EditShopWindow" Height="202" Width="479" Background="#FFEFE6DD" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="111"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="135"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="EmailTextBox" Margin="7,70,10,0" TextWrapping="Wrap" Text="" Background="#FF7EBDC2" BorderBrush="Black" FontFamily="Verdana" Height="22" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button Name="SaveButton" Content="Сохранить" Margin="0,0,19,32" Background="#FFF3DFA2" FontFamily="Verdana" Foreground="#FFBB4430" FontWeight="Bold" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="154" Height="22" VerticalAlignment="Bottom" Click="SaveButton_Click"/>
+        <Label Content="Email Address" Margin="7,44,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="135" Grid.Column="1" RenderTransformOrigin="0.501,0.563"/>
+        <CheckBox Content="Deliver Pay" Name="DeliverPayCheckBox" IsChecked="False" HorizontalAlignment="Right" Margin="0,70,19,0" VerticalAlignment="Top" Height="22" Width="96" Grid.Column="2" RenderTransformOrigin="0.006,0.511"/>
+        <ComboBox Name="IDCombobox" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="84" Height="22" SelectionChanged="IDCombobox_SelectionChanged"/>
+        <Label Content="ID" Margin="10,46,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="84"/>
+        <Button x:Name="DeleteButton" Content="Удалить" Margin="10,0,0,32" Background="#FFF3DFA2" FontFamily="Verdana" HorizontalAlignment="Left" Width="154" Grid.ColumnSpan="2" Height="22" VerticalAlignment="Bottom" Click="DeleteButton_Click"/>
+
+    </Grid>
+</Window>

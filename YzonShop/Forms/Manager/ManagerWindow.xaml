@@ -36,7 +36,18 @@
                         <GradientStop Color="#FFEFE6DD" Offset="1"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
-                <Grid Background="#FFEFE6DD"/>
+                <Grid Background="#FFEFE6DD">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="643*"/>
+                        <ColumnDefinition Width="151"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Name="ShopsDataGrid" Margin="10,54,22,10" Background="#FFEFE6DD" BorderBrush="#FF7EBDC2" BorderThickness="2,2,2,2" IsReadOnly="True"/>
+                    <Button Name="RefreshShopButton" Content="Обновить" HorizontalAlignment="Left" Margin="9,115,0,0" VerticalAlignment="Top" Width="106" Background="#FFF3DFA2" FontFamily="Verdana" Grid.Column="1" BorderBrush="Black" Click="RefreshShopButton_Click"/>
+                    <Button Name="EditShopButton" Content="Редактировать" HorizontalAlignment="Left" Margin="9,148,0,0" VerticalAlignment="Top" Width="106" Background="#FFF3DFA2" FontFamily="Verdana" Grid.Column="1" BorderBrush="Black" Click="EditShopButton_Click"/>
+                    <Button Name="AddShopButton" Content="Добавить" HorizontalAlignment="Left" Margin="9,185,0,0" VerticalAlignment="Top" Width="106" Background="#FFF3DFA2" FontFamily="Verdana" Grid.Column="1" BorderBrush="Black" Click="AddShopButton_Click"/>
+
+
+                </Grid>
             </TabItem>
             <TabItem Header="Заказы" BorderBrush="#FFF3DFA2" FontFamily="Verdana">
                 <TabItem.Background>
