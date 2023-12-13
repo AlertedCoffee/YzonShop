@@ -22,6 +22,6 @@ namespace YzonShop.Model
             DeliverPay = deliverPay;
         }
 
-        public override string ToString() => $"{Id}";
+        public override string ToString() => $"{EmailAddress}; {DeliverPay}";
     }
 }

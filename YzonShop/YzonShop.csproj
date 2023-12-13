@@ -78,6 +78,7 @@
     <Compile Include="Model\Goods.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\Shop.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="SQLHelper.cs" />
     <Page Include="Forms\AdministratorWindow.xaml">
       <SubType>Designer</SubType>

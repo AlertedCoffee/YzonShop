@@ -27,6 +27,8 @@ namespace YzonShop.Forms
             _sqlHelper = SQLHelper.GetSQLHelper();
         }
 
+        private List<Model.Order> _orders;
+
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -38,6 +40,10 @@ namespace YzonShop.Forms
                         break;
                     case 1:
                         ShopsDataGrid.ItemsSource = _sqlHelper.GetShops();
+                        break;
+                    case 2:
+                        _orders = _sqlHelper.GetOrders();
+                        OrdersDataGrid.ItemsSource = _orders;
                         break;
                     default:
                         break;
@@ -141,7 +147,29 @@ namespace YzonShop.Forms
 
         private void RefreshOrdersButton_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                OrdersDataGrid.ItemsSource = _sqlHelper.GetOrders();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
 
+            }
+        }
+
+        private void ApplyOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _sqlHelper.ApplyOrder(_orders[Int32.Parse(IDTextBox.Text) - 1]);
+                OrdersDataGrid.ItemsSource = _sqlHelper.GetOrders();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
         }
     }
 }

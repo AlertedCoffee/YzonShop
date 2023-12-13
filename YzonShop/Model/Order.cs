@@ -9,23 +9,23 @@ namespace YzonShop.Model
     public class Order
     {
         public int Id { get; set; }
-        public int Goods { get; set; }
-        public int Shop { get; set; }
+        public Goods Goods { get; set; }
+        public Shop Shop { get; set; }
         public DateTime OrderDate { get; set; }
         public int Count { get; set; }
-        public int ClientId { get; set; }
+        public User Client { get; set; }
         public bool Apply {  get; set; }
 
         public Order() { }
 
-        public Order(int id, int goods, int shop, DateTime orderDate, int count, int clientId, bool apply)
+        public Order(int id, Goods goods, Shop shop, DateTime orderDate, int count, User client, bool apply)
         {
             Id = id;
             Goods = goods;
             Shop = shop;
             OrderDate = orderDate;
             Count = count;
-            ClientId = clientId;
+            Client = client;
             Apply = apply;
         }
 

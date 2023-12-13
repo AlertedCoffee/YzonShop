@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using YzonShop.Model;
 
 namespace YzonShop
@@ -213,39 +214,80 @@ namespace YzonShop
 
         }
 
-        public void SetOrder(Order order)
+        public void ApplyOrder(Order order)
         {
-            //string query = $"insert into Shops values ('{order.EmailAddress}', '{order.DeliverPay}')";
-            //UseQuery(query).ExecuteNonQuery();
-        }
-
-        public void UpdateOrder(Order order)
-        {
-            //string query = $"update Shops set email_address = '{order.EmailAddress}', deliver_pay = '{order.DeliverPay}' where id = {order.Id}";
-            //UseQuery(query).ExecuteNonQuery();
-        }
-
-        public void DeleteOrder(int id)
-        {
-            string query = $"Delete Order where id = {id}";
+            string query = $"update Orders set apply = '{order.Apply}' where id = {order.Id}";
             UseQuery(query).ExecuteNonQuery();
         }
+
 
         private List<Order> OrdersListReturner(string query)
         {
             var list = new List<Order>();
+            var goods = GetGoods();
+            var shops = GetShops();
+            var users = GetUsers();
+
 
             SqlDataReader reader = UseQuery(query).ExecuteReader();
             while (reader.Read())
             {
-                //list.Add(new Shop(Int32.Parse(reader[0].ToString()),
-                //    reader[1].ToString(),
-                //    Boolean.Parse(reader[2].ToString())
-                //    ));
+                list.Add(new Order(Int32.Parse(reader[0].ToString()),
+                    FindGoods(goods, Int32.Parse(reader[1].ToString())),
+                    FindShop(shops, Int32.Parse(reader[2].ToString())),
+                    DateTime.Parse(reader[3].ToString()),
+                    Int32.Parse(reader[4].ToString()),
+                    FindClient(users, Int32.Parse(reader[5].ToString())),
+                    Boolean.Parse(reader[6].ToString()))
+                    );
             }
             reader.Close();
 
             return list;
+        }
+
+        private Goods FindGoods(List<Goods> list, int id)
+        {
+            foreach (var item in list)
+            {
+                if (item.Id == id) { return item; }
+            }
+            return null;
+        }
+
+        private List<User> GetUsers()
+        {
+            var list = new List<User>();
+            string query = $"select * from Users";
+            SqlDataReader reader = UseQuery(query).ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new User(
+                    Int32.Parse(reader[0].ToString()),
+                    reader[1].ToString(),
+                    reader[2].ToString()));
+            }
+            reader.Close();
+
+            return list;
+        }
+
+        private User FindClient(List<User> list, int id)
+        {
+            foreach (var item in list)
+            {
+                if (item.Id == id) { return item; }
+            }
+            return null;
+        }
+
+        private Shop FindShop(List<Shop> list, int id)
+        {
+            foreach (var item in list)
+            {
+                if (item.Id == id) { return item; }
+            }
+            return null;
         }
         #endregion Orders
 

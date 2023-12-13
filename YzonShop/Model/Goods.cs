@@ -39,6 +39,6 @@ namespace YzonShop.Model
             Image = "";
         }
 
-        public override string ToString() => $"{Id}";
+        public override string ToString() => $"{Name}; {Firm}; {Model}";
     }
 }
