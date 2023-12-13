@@ -35,11 +35,6 @@ namespace YzonShop
         {
             try
             {
-                Window test = new ClientWindow(1);
-                test.Show();
-                this.Close();
-                return;
-
                 SQLHelper sqlHelper = SQLHelper.GetSQLHelper();
 
                 var appointment = sqlHelper.Login(LoginTextBox.Text, PasswordBox.Password);
@@ -64,13 +59,13 @@ namespace YzonShop
                 switch (appointment[0])
                 {
                     case "Пользователь":
-                        //thread = new Thread(Run => Application.Run(new Director(sqlHelper)));
+                        window = new ClientWindow(Int32.Parse(appointment[1]));
                         break;
                     case "Менеджер":
                         window = new ManagerWindow();
                         break;
                     case "Доставщик":
-                        //thread = new Thread(Run => Application.Run(new Collector(sqlHelper)));
+                        window = new DelivererWindow(Int32.Parse(appointment[1]));
                         break;
                     case "Администратор":
                         window = new AdministratorWindow();
@@ -121,7 +116,7 @@ namespace YzonShop
         private void CaptchaInit()
         {
             
-            LoginButton.Margin = new Thickness(226, 326, 323, 0);
+            LoginButton.Margin = new Thickness(323, 326, 323, 0);
             Random random = new Random();
             a = random.Next(0, 100);
             b = random.Next(0, 100);

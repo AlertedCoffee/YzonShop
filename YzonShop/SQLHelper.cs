@@ -242,7 +242,7 @@ namespace YzonShop
 
         public void ApplyOrder(Order order)
         {
-            string query = $"update Orders set apply = '{order.Apply}' where id = {order.Id}";
+            string query = $"update Orders set apply = 1 where id = {order.Id}";
             UseQuery(query).ExecuteNonQuery();
         }
 
@@ -287,6 +287,15 @@ namespace YzonShop
             return null;
         }
 
+        private Order FindOrder(List<Order> list, int id)
+        {
+            foreach (var item in list)
+            {
+                if (item.Id == id) { return item; }
+            }
+            return null;
+        }
+
         private List<User> GetUsers()
         {
             var list = new List<User>();
@@ -297,6 +306,26 @@ namespace YzonShop
                 list.Add(new User(
                     Int32.Parse(reader[0].ToString()),
                     reader[1].ToString(),
+                    reader[2].ToString()));
+            }
+            reader.Close();
+
+            return list;
+        }
+
+        public List<Deliver> GetDeliver(int id)
+        {
+            var list = new List<Deliver>();
+            List<Order> orders = GetOrders();
+
+
+            string query = $"select * from Delivers where deliverer_id = {id}";
+            SqlDataReader reader = UseQuery(query).ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new Deliver(
+                    FindOrder(orders, Int32.Parse(reader[0].ToString())),
+                    DateTime.Parse(reader[1].ToString()),
                     reader[2].ToString()));
             }
             reader.Close();
@@ -322,27 +351,5 @@ namespace YzonShop
             return null;
         }
         #endregion Orders
-
-        private List<string[]> ListReturner(string query)
-        {
-            var list = new List<string[]>();
-
-            SqlDataReader reader = UseQuery(query).ExecuteReader();
-            while (reader.Read())
-            {
-                var employee = new string[reader.FieldCount];
-                for (int i = 0; i < employee.Length; i++)
-                {
-                    employee[i] = reader[i].ToString();
-                }
-
-                list.Add(employee);
-            }
-            reader.Close();
-
-            return list;
-        }
-
-
     }
 }

@@ -29,7 +29,7 @@ namespace YzonShop.Model
             Apply = apply;
         }
 
-        public override string ToString() => $"{Id}";
+        public override string ToString() => $"{Id}; {Goods.Name}; {Client.Name}";
 
     }
 }

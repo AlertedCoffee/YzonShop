@@ -62,6 +62,9 @@
     <Compile Include="Forms\ClientWindow.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DelivererWindow.xaml.cs">
+      <DependentUpon>DelivererWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Manager\AddGoodsWindow.xaml.cs">
       <DependentUpon>AddGoodsWindow.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,7 @@
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\AuthLog.cs" />
+    <Compile Include="Model\Deliver.cs" />
     <Compile Include="Model\Goods.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\Shop.cs" />
@@ -88,6 +92,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\ClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DelivererWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

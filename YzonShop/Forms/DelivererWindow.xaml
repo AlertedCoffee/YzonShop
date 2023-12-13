@@ -1,0 +1,15 @@
+﻿<Window x:Class="YzonShop.Forms.DelivererWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YzonShop.Forms"
+        mc:Ignorable="d"
+        Title="DelivererWindow" Height="450" Width="600" Loaded="Window_Loaded">
+    <Grid Background="#FFEFE6DD" Margin="0,0,0,0">
+        <Button Content="Обновить" Name="RefreshButton" Margin="470,24,0,0" VerticalAlignment="Top" Background="#FFF3DFA2" BorderBrush="Black" FontWeight="Bold" Height="24" Foreground="#FFBB4430" FontFamily="Verdana" HorizontalAlignment="Left" Width="110" Click="RefreshButton_Click"/>
+        <DataGrid Name="DeliverDataGrid" Margin="10,72,20,25" Background="#FFEFE6DD" BorderBrush="#FF7EBDC2" BorderThickness="2,2,2,2">
+        </DataGrid>
+
+    </Grid>
+</Window>
