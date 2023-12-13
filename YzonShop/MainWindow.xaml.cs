@@ -35,7 +35,7 @@ namespace YzonShop
         {
             try
             {
-                Window test = new ManagerWindow();
+                Window test = new ClientWindow(1);
                 test.Show();
                 this.Close();
                 return;

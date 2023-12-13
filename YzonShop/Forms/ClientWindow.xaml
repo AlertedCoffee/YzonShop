@@ -1,0 +1,38 @@
+﻿<Window x:Class="YzonShop.Forms.ClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YzonShop.Forms"
+        mc:Ignorable="d"
+            Title="Client" Height="450" Width="800" Background="#FF7EBDC2" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="106*"/>
+            <RowDefinition Height="111*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="231*"/>
+            <ColumnDefinition Width="169*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Выход" Name="LogoutButton" BorderBrush="Black" Background="#FFF3DFA2" Foreground="#FFBB4430" FontWeight="Bold" Visibility="Visible" Click="LogoutButton_Click" HorizontalAlignment="Right" Width="100" Height="21" VerticalAlignment="Top" Margin="0,7,10,0" Grid.Column="1"/>
+
+        <DataGrid x:Name="GoodsDataGrid" AutoGenerateColumns="False" Margin="10,78,23,10" Background="#FFEFE6DD" Grid.RowSpan="2" IsReadOnly="True" SelectionChanged="GoodsDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Товар" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Модель" Binding="{Binding Model}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Заказать" Name="OrderButton" Margin="0,0,25,23" Background="#FFF3DFA2" BorderBrush="Black" Foreground="#FFBB4430" FontWeight="Bold" Grid.Column="1" HorizontalAlignment="Right" Width="128" Height="24" VerticalAlignment="Bottom" Grid.Row="1" Click="OrderButton_Click"/>
+        <Image Name="GoodsImage" Margin="19,78,165,9" Grid.Column="1"/>
+        <TextBlock Name="DescriptionTextBlock" Margin="19,29,25,70" TextWrapping="Wrap" Text="" Background="#FFEFE6DD" Grid.Column="1" Grid.Row="1"/>
+        <Label Content="Описание" HorizontalAlignment="Left" Margin="19,203,0,0" VerticalAlignment="Top" Width="85" Height="28" Grid.Column="1" Grid.RowSpan="2"/>
+        <TextBox Name="NameTextBox" Margin="10,41,0,0" TextWrapping="Wrap" Text="" Background="#FF7EBDC2" BorderBrush="Black" FontFamily="Verdana" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="144"/>
+        <Label Content="Товар" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Width="144" Height="26"/>
+        <TextBox Name="ModelTextBox" Margin="203,41,0,0" TextWrapping="Wrap" Text="" Background="#FF7EBDC2" BorderBrush="Black" FontFamily="Verdana" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="139"/>
+        <Label Content="Модель" HorizontalAlignment="Left" Margin="203,15,0,0" VerticalAlignment="Top" Width="139" RenderTransformOrigin="0.021,0.487" Height="26"/>
+        <Button Content="Поиск" Name="SearchButton" HorizontalAlignment="Left" Margin="371,40,0,0" VerticalAlignment="Top" Height="24" Width="128" Background="#FFF3DFA2" BorderBrush="Black" Grid.ColumnSpan="2" Click="SearchButton_Click"/>
+
+
+    </Grid>
+</Window>

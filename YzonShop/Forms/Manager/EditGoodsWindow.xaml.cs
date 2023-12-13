@@ -97,7 +97,7 @@ namespace YzonShop.Forms.Manager
 
                 if (imagePath != null)
                 {
-                    File.Delete(goods.Image);
+                    if(!string.IsNullOrEmpty(goods.Image)) File.Delete(goods.Image);
 
                     string extension = '.' + imagePath.Split('.')[imagePath.Split('.').Length - 1];
                     Directory.CreateDirectory(Config.ImageSourceDir);

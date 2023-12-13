@@ -59,6 +59,9 @@
     <Compile Include="Forms\AdministratorWindow.xaml.cs">
       <DependentUpon>AdministratorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ClientWindow.xaml.cs">
+      <DependentUpon>ClientWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Manager\AddGoodsWindow.xaml.cs">
       <DependentUpon>AddGoodsWindow.xaml</DependentUpon>
     </Compile>
@@ -81,6 +84,10 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="SQLHelper.cs" />
     <Page Include="Forms\AdministratorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\ClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

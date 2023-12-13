@@ -137,6 +137,29 @@ namespace YzonShop
             UseQuery(query).ExecuteNonQuery();
         }
 
+        public List<Goods> GetSortedGoods(string name, string model)
+        {
+            string query;
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(model))
+            {
+                return GetGoods();
+            }
+            else if (string.IsNullOrEmpty(name))
+            {
+                query = $"select * from Goods where model = '{model}'";
+            }
+            else if (string.IsNullOrEmpty(model))
+            {
+                query = $"select * from Goods where name = '{name}'";
+            }
+            else
+            {
+                query = $"select * from Goods where name = '{name}' and  model = '{model}'";
+            }
+
+            return GoodsListReturner(query);
+        }
+
         private List<Goods> GoodsListReturner(string query)
         {
             var list = new List<Goods>();
@@ -158,6 +181,8 @@ namespace YzonShop
 
             return list;
         }
+
+
         #endregion Goods
 
         #region Shops
@@ -205,6 +230,7 @@ namespace YzonShop
         }
 
         #endregion Shops
+
         #region Orders
         public List<Order> GetOrders()
         {
@@ -217,6 +243,12 @@ namespace YzonShop
         public void ApplyOrder(Order order)
         {
             string query = $"update Orders set apply = '{order.Apply}' where id = {order.Id}";
+            UseQuery(query).ExecuteNonQuery();
+        }
+
+        public void AddOrder(int goodsId, int shopId, int count, int clientId)
+        {
+            string query = $"insert into Orders values ('{goodsId}', '{shopId}', '{DateTime.Now}', '{count}', {clientId}, 0)";
             UseQuery(query).ExecuteNonQuery();
         }
 
