@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace YzonShop.Model
+namespace SQLHelperLib.Model
 {
     public class Shop
     {

@@ -7,8 +7,10 @@
         mc:Ignorable="d"
         Title="DelivererWindow" Height="450" Width="600" Loaded="Window_Loaded">
     <Grid Background="#FFEFE6DD" Margin="0,0,0,0">
-        <Button Content="Обновить" Name="RefreshButton" Margin="470,24,0,0" VerticalAlignment="Top" Background="#FFF3DFA2" BorderBrush="Black" FontWeight="Bold" Height="24" Foreground="#FFBB4430" FontFamily="Verdana" HorizontalAlignment="Left" Width="110" Click="RefreshButton_Click"/>
-        <DataGrid Name="DeliverDataGrid" Margin="10,72,20,25" Background="#FFEFE6DD" BorderBrush="#FF7EBDC2" BorderThickness="2,2,2,2">
+        <Button Content="Обновить" Name="RefreshButton" Margin="10,10,0,0" VerticalAlignment="Top" Background="#FFF3DFA2" BorderBrush="Black" FontWeight="Bold" Height="24" Foreground="#FFBB4430" FontFamily="Verdana" HorizontalAlignment="Left" Width="110" Click="RefreshButton_Click"/>
+        <Button Content="Выход" Name="LogoutButton" BorderBrush="Black" Background="#FFF3DFA2" Visibility="Visible" HorizontalAlignment="Right" Width="100" Height="21" VerticalAlignment="Top" Margin="0,10,10,0" Click="LogoutButton_Click"/>
+
+        <DataGrid Name="DeliverDataGrid" Margin="10,50,20,25" Background="#FFEFE6DD" BorderBrush="#FF7EBDC2" BorderThickness="2,2,2,2">
         </DataGrid>
 
     </Grid>

@@ -10,6 +10,8 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using SQLHelperLib;
+using SQLHelperLib.Model;
 using System.Windows.Shapes;
 
 namespace YzonShop.Forms.Manager
@@ -30,7 +32,7 @@ namespace YzonShop.Forms.Manager
             {
                 SQLHelper sqlHelper = SQLHelper.GetSQLHelper();
 
-                sqlHelper.SetShop(new Model.Shop(0, EmailTextBox.Text, (bool)DeliverPayCheckBox.IsChecked));
+                sqlHelper.SetShop(new Shop(0, EmailTextBox.Text, (bool)DeliverPayCheckBox.IsChecked));
                 this.Close();
             }
             catch (Exception ex)

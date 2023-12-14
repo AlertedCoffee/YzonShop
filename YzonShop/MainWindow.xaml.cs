@@ -15,7 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using YzonShop.Forms;
-using static System.Net.Mime.MediaTypeNames;
+using SQLHelperLib;
+using SQLHelperLib.Model;
 
 namespace YzonShop
 {

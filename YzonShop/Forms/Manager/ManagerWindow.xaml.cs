@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using YzonShop.Forms.Manager;
+using SQLHelperLib;
+using SQLHelperLib.Model;
 
 namespace YzonShop.Forms
 {
@@ -27,7 +29,7 @@ namespace YzonShop.Forms
             _sqlHelper = SQLHelper.GetSQLHelper();
         }
 
-        private List<Model.Order> _orders;
+        private List<Order> _orders;
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

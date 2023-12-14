@@ -80,13 +80,6 @@
     <Compile Include="Forms\Manager\ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\AuthLog.cs" />
-    <Compile Include="Model\Deliver.cs" />
-    <Compile Include="Model\Goods.cs" />
-    <Compile Include="Model\Order.cs" />
-    <Compile Include="Model\Shop.cs" />
-    <Compile Include="Model\User.cs" />
-    <Compile Include="SQLHelper.cs" />
     <Page Include="Forms\AdministratorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +150,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SQLHelperLib\SQLHelperLib.csproj">
+      <Project>{48fa08cb-bcd6-4b1c-bf4c-b28ae548ea46}</Project>
+      <Name>SQLHelperLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

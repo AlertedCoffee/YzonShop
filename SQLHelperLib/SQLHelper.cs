@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Documents;
-using YzonShop.Model;
+using SQLHelperLib.Model;
 
-namespace YzonShop
+namespace SQLHelperLib
 {
     public class SQLHelper
     {
         public SqlConnection Connection;
         private string connectionString = @" Data Source=ALERTEDCOFFEE\SQLEXPRESS;Initial Catalog=EShop;Integrated Security=True; ";
-        
+
         private static SQLHelper _SQLHelper;
         private SQLHelper()
         {
@@ -57,7 +55,7 @@ namespace YzonShop
         {
             string Query = $"insert into AuthLog values ('{login}', '{DateTime.Now}', {access})";
             UseQuery(Query).ExecuteNonQuery();
-        } 
+        }
 
 
         public List<AuthLog> GetAuthList()
