@@ -1,15 +1,14 @@
 ## YzonShop 
-Это WPF приложение написано по заданию для тренироки к демонстрационному экзамену. По суди приложение для магазина товаров. 
+This WPF application was written as an assignment for training for the demonstration exam. Essentially, it is an application for a goods store.
 
-Включает в себя роли: 
-+ Администратор
-+ Менеджер
-+ Пользователь
-+ Доставщик
+It includes the following roles: 
++ Administrator
++ Manager
++ User
++ Deliverer
 
-Для разграничений по роля, логирования входов, реализации ассортимента товаров, системы заказов построена следующая база данных на MS SQL:
+To separate roles, log entries, implement the product range, and the order system, the following database on MS SQL was built:
 
-![Схема бд](https://i.imgur.com/adcX9nl.png)
+![Database Schema](https://i.imgur.com/adcX9nl.png)
 
-
-[Простой интерфейс согласно руководству по стилю в наличии](https://imgur.com/a/AQRdzcO)
+[A simple interface according to the style guide is available](https://imgur.com/a/AQRdzcO)
