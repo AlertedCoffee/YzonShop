@@ -349,7 +349,7 @@ namespace SQLHelperLib
         /// <param name="order">Заказ</param>
         public void ApplyOrder(Order order)
         {
-            string query = $"update Orders set apply = {!order.Apply} where id = {order.Id}";
+            string query = $"update Orders set apply = '{!order.Apply}' where id = {order.Id}";
             UseQuery(query).ExecuteNonQuery();
         }
 
@@ -402,7 +402,7 @@ namespace SQLHelperLib
         /// <param name="list">Лист товаров</param>
         /// <param name="id">id поиска</param>
         /// <returns>Goods</returns>
-        private Goods FindGoods(List<Goods> list, int id)
+        public Goods FindGoods(List<Goods> list, int id)
         {
             foreach (var item in list)
             {
@@ -417,7 +417,7 @@ namespace SQLHelperLib
         /// <param name="list">Лист заказов</param>
         /// <param name="id">id поиска</param>
         /// <returns>Order</returns>
-        private Order FindOrder(List<Order> list, int id)
+        public Order FindOrder(List<Order> list, int id)
         {
             foreach (var item in list)
             {
@@ -430,7 +430,7 @@ namespace SQLHelperLib
         /// Получение информации о пользователях.
         /// </summary>
         /// <returns>List<User></returns>
-        private List<User> GetUsers()
+        public List<User> GetUsers()
         {
             var list = new List<User>();
             string query = $"select * from Users";
@@ -478,7 +478,7 @@ namespace SQLHelperLib
         /// <param name="list">Лист пользователей</param>
         /// <param name="id">id поиска</param>
         /// <returns>User</returns>
-        private User FindClient(List<User> list, int id)
+        public User FindClient(List<User> list, int id)
         {
             foreach (var item in list)
             {
@@ -493,7 +493,7 @@ namespace SQLHelperLib
         /// <param name="list">Лист магазинов</param>
         /// <param name="id">id поиска</param>
         /// <returns>Shop</returns>
-        private Shop FindShop(List<Shop> list, int id)
+        public Shop FindShop(List<Shop> list, int id)
         {
             foreach (var item in list)
             {
